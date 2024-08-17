@@ -16,7 +16,7 @@ class Product(models.Model):
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
-        related_name="products"
+        related_name="products",
     )
     price = models.IntegerField(verbose_name="цена за покупку")
     created_at = models.DateField(verbose_name="Дата создания")
