@@ -4,14 +4,26 @@ from django.db import models
 class Product(models.Model):
     product_name = models.CharField(max_length=100, verbose_name="Название")
     description = models.TextField(verbose_name="описание")
-    image = models.ImageField(verbose_name="картинка")
-    category = models.ForeignKey(verbose_name="Категория")
+    image = models.ImageField(
+        verbose_name="картинка",
+        upload_to="dogs/photo",
+        blank=True,
+        null=True,
+    )
+    category = models.ForeignKey(
+        "Category",
+        verbose_name="Категория",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="products"
+    )
     price = models.IntegerField(verbose_name="цена за покупку")
-    create_date = models.DateTimeField(verbose_name="Дата создания")
-    change_date = models.DateTimeField(verbose_name="Дата последнего изменения")
+    created_at = models.DateField(verbose_name="Дата создания")
+    updated_at = models.DateField(verbose_name="Дата последнего изменения")
 
     def __str__(self):
-        return f"{self.product_name}, {self.description}, {self.category}, {self.create_date}, {self.change_date}"
+        return f"{self.product_name} {self.category}"
 
     class Meta:
         verbose_name = "Товар"
