@@ -130,13 +130,10 @@ STATICFILES_DIRS = (BASE_DIR / "static",)
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 MEDIA_URL = "media/"
-
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
-
+# Пути к фикстурам
 FIXTURE_URL = "fixtures/"
-
 FIXTURE_DIR = os.path.join(BASE_DIR, "fixtures")
-
 CATEGORIES_DIR = os.path.join(FIXTURE_DIR, "categories.json")
 PRODUCTS_DIR = os.path.join(FIXTURE_DIR, "products.json")

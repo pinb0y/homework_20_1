@@ -7,28 +7,34 @@ from main.models import Product, Category
 
 
 class Command(BaseCommand):
+    """
+    Удаляет старые записи в БД и записывает новые из json файла.
+    """
 
     @staticmethod
     def json_read_file(path):
         """
-        Читает данные из json файла
-        :param path: путь к json файлу
-        :return:
+        Читает данные из json файла.
+        :param path: Путь к json файлу
+        :return: Возвращает весь файл.
         """
         with open(path, "r", encoding="utf-8") as file:
             return json.load(file)
 
     def handle(self, *args, **kwargs):
 
+        # Удаление старых записей
         Category.objects.all().delete()
         Product.objects.all().delete()
 
+        # Создание объектов категорий
         categories_for_create = []
         for category_item in Command.json_read_file(CATEGORIES_DIR):
             categories_for_create.append(Category(**category_item["fields"]))
 
         Category.objects.bulk_create(categories_for_create)
 
+        # Создание объектов продуктов
         products_for_create = []
         for product_item in Command.json_read_file(PRODUCTS_DIR):
             category = product_item["fields"].pop("category")
