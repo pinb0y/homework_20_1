@@ -435,7 +435,7 @@
     "fields": {
       "product_name": "Кружка",
       "description": "Для чая",
-      "image": "dogs/photo/photo_2024-04-23_00-03-36.jpg",
+      "image": "main/photo/photo_2024-04-23_00-03-36.jpg",
       "category": 1,
       "price": 200,
       "created_at": "2024-08-17",
@@ -448,7 +448,7 @@
     "fields": {
       "product_name": "тарелка",
       "description": "для каши",
-      "image": "dogs/photo/plate.jpg",
+      "image": "main/photo/plate.jpg",
       "category": 1,
       "price": 100,
       "created_at": "2024-08-17",
@@ -461,7 +461,7 @@
     "fields": {
       "product_name": "футболка",
       "description": "принт Че гевара",
-      "image": "dogs/photo/che_tshort.jpg",
+      "image": "main/photo/che_tshort.jpg",
       "category": 3,
       "price": 500,
       "created_at": "2024-08-17",
